@@ -35,20 +35,15 @@
   //getUsername --> which is a function that returns the current object's username property. *Don't use 'user' instead use the 'this' keyword*
 
     //Code Here
-    // var user = {
-    //   username : 'uname',
-    //   email : 'address',
-    //   getUsername : function() {
-    //     return this.username;
-    //   }
-    // };
+    var user = {
+      username : 'uname',
+      email : 'address',
+      getUsername : function() {
+        return this.username;
+      }
+    };
 
-    var user = {}; 
-    user.username = 'uname';
-    user.email = 'address';
-    user.getUsername = function() {
-      return this.username;
-    }
+
 
 
 //Now, invoke the getUsername method and verify you got the username of the object and not anything else.
@@ -65,7 +60,9 @@ function Car(make, model, year) {
   this.year = year;
   this.move = 0;
   this.moveCar = function() {
-    this.move += 10;
+  
+  return this.move += 10;
+
   }
   return this;
 }
@@ -125,4 +122,4 @@ setTimeout(getMyUsername, 5000);
   // the window
 
 //Fix the setTimeout invocation so that the user object will be the focal object when getUsername is ran.
-setTimeout(getMyUsername.call(myUser, 5000);
+setTimeout(getMyUsername.call(myUser), 5000);
