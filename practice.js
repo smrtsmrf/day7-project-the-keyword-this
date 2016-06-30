@@ -3,17 +3,28 @@
 
       //Answer
 
+      // To avoid redundancy. Like using 'he' to refer to 'John' after you've introduced that you're talking about John.
+
   // 2) What are the four rules that govern what the 'this keyword' is bound to and describe each?
 
       //Answer
+
+      // 
 
   // 3) What is the difference between call and apply?
 
       //Answer
 
+      // Call lets you use once inline, whereas apply lets you use it multiple times.
+      // Usage: use .call on a function and pass in an obj/parameter to be used in that function
+
   // 4) What does .bind do?
 
       //Answer
+
+      // it fixes when this is used in a method and that method is used as a callback.
+      // So like with $(button).click(<obj>.<method>), "this" is attached to the button object, as opposed to <obj>. So using <obj>.<method>.bind(<obj>) 
+      // will keep "this" referencing <obj> instead of button.
 
 
 //Next Problem
@@ -24,14 +35,40 @@
   //getUsername --> which is a function that returns the current object's username property. *Don't use 'user' instead use the 'this' keyword*
 
     //Code Here
+    // var user = {
+    //   username : 'uname',
+    //   email : 'address',
+    //   getUsername : function() {
+    //     return this.username;
+    //   }
+    // };
+
+    var user = {}; 
+    user.username = 'uname';
+    user.email = 'address';
+    user.getUsername = function() {
+      return this.username;
+    }
+
 
 //Now, invoke the getUsername method and verify you got the username of the object and not anything else.
-
+user.getUsername();
 
 //Next Problem
 
 
 // Write the function definitions which will make the following function invocations function properly.
+
+function Car(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+  this.move = 0;
+  this.moveCar = function() {
+    this.move += 10;
+  }
+  return this;
+}
 
   //Function Invocations Here
 
@@ -55,6 +92,8 @@ var getYear = function(){
 
 //Note(no tests)
   //Code Here
+  getYear.call(prius);
+  getYear.call(mustang);
 
 
 //New Problem
@@ -77,8 +116,13 @@ setTimeout(getMyUsername, 5000);
 //Note(no tests)
   //Answer Here
 
+  // undefined
+
 //In the example above, what is the 'this keyword' bound to when getUsername runs?
 
   //Answer Here
 
+  // the window
+
 //Fix the setTimeout invocation so that the user object will be the focal object when getUsername is ran.
+setTimeout(getMyUsername.call(myUser, 5000);
