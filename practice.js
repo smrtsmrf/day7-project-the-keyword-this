@@ -9,13 +9,16 @@
 
       //Answer
 
-      // 
+      // implicit binding - left of the dot at call time
+      // window binding - this keyword doesn't point anywhere
+      // explicit binding - call, apply, bind
+      // new binding - constructor function
 
   // 3) What is the difference between call and apply?
 
       //Answer
 
-      // Call lets you use once inline, whereas apply lets you use it multiple times.
+      // apply you can use an array of arguments whereas call must have arguments separated by commas
       // Usage: use .call on a function and pass in an obj/parameter to be used in that function
 
   // 4) What does .bind do?
@@ -25,6 +28,8 @@
       // it fixes when this is used in a method and that method is used as a callback.
       // So like with $(button).click(<obj>.<method>), "this" is attached to the button object, as opposed to <obj>. So using <obj>.<method>.bind(<obj>) 
       // will keep "this" referencing <obj> instead of button.
+
+      // it holds a reference to a function, but doesn't invoke it yet
 
 
 //Next Problem
